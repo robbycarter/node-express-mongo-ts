@@ -15,5 +15,5 @@ This project is a starting point for developing an API-first application using T
 - Backend
     - [Node.js](https://nodejs.org)
     - [Express](https://expressjs.com/)
-    - [mongoose](https://mongoosejs.com/) Database Drive
+    - [mongoose](https://mongoosejs.com/) ODM for mongo
       - [mongoose-paginate](https://www.npmjs.com/package/mongoose-paginate) Mongoose Paginate Plugin
