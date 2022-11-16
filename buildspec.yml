@@ -14,7 +14,7 @@ phases:
     on-failure: ABORT
     commands:
       - echo Build started on $(date '+%Y-%m-%d %H:%M:%S %Z')
-      # - export NODE_OPTIONS="--max-old-space-size=2048"
+      - export NODE_OPTIONS="--max-old-space-size=2048"
       - npm run build-prod
       - rm -rf build/* && tsc -b ./tsconfig.json
   post_build:
