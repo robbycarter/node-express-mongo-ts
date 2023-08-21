@@ -12,7 +12,9 @@
     "forceConsistentCasingInFileNames": true,
     "strict": false,
     "noImplicitAny": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
   },
   "ignore": [
     "node_modules",
