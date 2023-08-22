@@ -22,18 +22,18 @@ router.get("/books", async (req: Request, res: Response, next: NextFunction) => 
 router.post("/books", async (req: Request, res: Response, next: NextFunction) => {
   try {
 
-    const {author, title, year} = req.body;
+    const { author, title, year } = req.body;
 
     //check if author exists
     const authorExists = await AuthorModel.findById(author);
     if (!authorExists) {
-      return res.status(400).send({message: "Author not found"});
+      return res.status(400).send({ message: "Author not found" });
     }
 
     // checkl if book exists
-    const bookExists = await BookModel.findOne({title, author});
+    const bookExists = await BookModel.findOne({ title, author });
     if (bookExists) {
-      return res.status(400).send({message: "Book already exists"});
+      return res.status(400).send({ message: "Book already exists" });
     }
 
     const book = new BookModel(req.body);
