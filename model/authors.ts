@@ -38,6 +38,10 @@ class Author {
     return `B${this.name.toString()}-${this.country.toString()}`
   }
 
+  public set bookCode(code: string) {
+    this.bookCode = code;
+  }
+
   // Statics
   public static async findByCountry(this: ReturnModelType<typeof Author>, country: string) {
     return await this.find({ country });    
