@@ -1,5 +1,6 @@
 import express, { Request, Response, NextFunction } from "express";
 import { Author, AuthorModel } from "../model/authors";
+import { BookModel } from "../model/books";
 
 const router = express.Router();
 
@@ -31,6 +32,14 @@ router.get("/authors/:id", async (req: Request, res: Response, next: NextFunctio
   try {
 
     const author = await AuthorModel.findById(req.params.id).populate("books");
+
+    if (author) {
+      author.books.forEach(book => {
+        if (book instanceof BookModel) {
+          console.log(book.title);
+        }
+      });
+    }
 
     return res.send(author);
   } catch (err) {

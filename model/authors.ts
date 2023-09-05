@@ -1,6 +1,6 @@
-import { prop, getModelForClass, modelOptions, ReturnModelType, DocumentType, pre, post } from '@typegoose/typegoose';
+import { prop, getModelForClass, modelOptions, ReturnModelType, DocumentType, pre, post, Ref } from '@typegoose/typegoose';
 import * as mongoose from 'mongoose';
-import { BookModel } from './books';
+import { BookModel,Book } from './books';
 
 //Pre hooks
 @pre<Author>('save', function() {
@@ -22,7 +22,7 @@ class Author {
   country: string;
 
   @prop({ ref: 'Book', type: () => mongoose.Types.ObjectId })
-  books?: mongoose.Types.ObjectId[];
+  books?: Ref<Book>[];
 
   @prop({ default: true, type: Boolean })
   isActive?: boolean;
